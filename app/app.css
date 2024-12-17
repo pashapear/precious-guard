@@ -9,4 +9,7 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+   width: 100vw;
+   height: 100vh;
+  background: no-repeat center/100% url('/assets/wave-animation.gif');
 }
