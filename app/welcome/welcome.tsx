@@ -1,7 +1,3 @@
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
-import waveAnimation from "../assets/wave-animation.gif";
-
 export function Welcome() {
   return (
     <main className="flex items-center justify-center pt-8 pb-4">
