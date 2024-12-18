@@ -93,6 +93,8 @@ const Sticker = ({ coords }: { coords: [string, string] }) => {
         top: `${coords[0]}`,
         left: `${coords[1]}`,
         zIndex: 1,
+        pointerEvents: "none",
+        opacity: 0.7,
       }}
     >
       <Text style={{ fontSize: "700%" }}>💋</Text>
