@@ -166,10 +166,10 @@ const TimePanel = () => {
               <Text>🕒</Text>
               <Clock />
             </Flex>
-            <Flex justify="center" gap="3">
+            <Flex justify="center" align="center" gap="5">
               <Text>💰</Text>
               <Text>{formattedGill}G</Text>
-              <Button color="green" variant="outline" onClick={spend}>
+              <Button color="green" variant="ghost" onClick={spend}>
                 Spend
               </Button>
             </Flex>
