@@ -1,7 +1,7 @@
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import { characters, MusicGroupMember } from "./data/characters.ts";
-import { Box, Button, Flex, Grid, IconButton, Text } from "@radix-ui/themes";
+import { Box, Flex, Grid, IconButton, Text } from "@radix-ui/themes";
 import { useState, useEffect } from "react";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
