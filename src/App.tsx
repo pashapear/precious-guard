@@ -1,7 +1,7 @@
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import { characters, MusicGroupMember } from "./data/characters.ts";
-import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
+import { Box, Button, Flex, Grid, IconButton, Text } from "@radix-ui/themes";
 import { useState, useEffect } from "react";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
@@ -17,7 +17,6 @@ const Stats = ({ character }: { character: MusicGroupMember }) => {
         <Text>{character.shortName}</Text>
         <Flex gap="2">
           <Text className="text-outline">LV {character.stats.level}</Text>
-          {/* <Box className="gray-card" minWidth="100px">{` `}</Box> */}
         </Flex>
       </Flex>
       <Flex>
@@ -29,7 +28,7 @@ const Stats = ({ character }: { character: MusicGroupMember }) => {
         <Text className="text-outline">
           MP {character.stats.mp} / {character.stats.hp}
         </Text>
-        <Flex align="center">
+        <Flex align="center" gap="2">
           <Text>💎</Text>
           <Text>
             {character.stats.ap} / {character.stats.ap}
@@ -85,7 +84,13 @@ const Clock = () => {
   return <Text>{time.toLocaleTimeString()}</Text>;
 };
 
-const Sticker = ({ coords }: { coords: [string, string] }) => {
+const Sticker = ({
+  coords,
+  icon = "💋",
+}: {
+  coords: [string, string];
+  icon?: string;
+}) => {
   return (
     <div
       style={{
@@ -97,7 +102,7 @@ const Sticker = ({ coords }: { coords: [string, string] }) => {
         opacity: 0.7,
       }}
     >
-      <Text style={{ fontSize: "700%" }}>💋</Text>
+      <Text style={{ fontSize: "700%" }}>{icon}</Text>
     </div>
   );
 };
@@ -116,6 +121,7 @@ const TimePanel = () => {
   const [dropAmount, setDropAmount] = useState(5);
   const [clicks, setClicks] = useState(0);
   const [stickers, setStickers] = useState<[string, string][]>([]);
+  const [walletColor, setWalletColor] = useState<any>("unset");
 
   useEffect(() => {
     if (!gill) {
@@ -142,7 +148,11 @@ const TimePanel = () => {
     setGill((prev) => {
       const result = prev - dropAmount;
       if (result <= 0) {
+        setWalletColor("unset");
         return 0;
+      }
+      if (result < 15000) {
+        setWalletColor("red");
       }
       return result;
     });
@@ -152,7 +162,11 @@ const TimePanel = () => {
     <Box mt="3">
       <BevelBox>
         {stickers.map((coords, index) => (
-          <Sticker key={index} coords={coords} />
+          <Sticker
+            key={index}
+            coords={coords}
+            icon={gill < 10000 ? "😵" : undefined}
+          />
         ))}
         <Box position="relative">
           <SmallHeader>Time & Gil</SmallHeader>
@@ -168,10 +182,10 @@ const TimePanel = () => {
             </Flex>
             <Flex justify="center" align="center" gap="5">
               <Text>💰</Text>
-              <Text>{formattedGill}G</Text>
-              <Button color="green" variant="ghost" onClick={spend}>
-                Spend
-              </Button>
+              <Text color={walletColor}>{formattedGill}G</Text>
+              <IconButton onClick={spend} variant="ghost">
+                <Text>🫰</Text>
+              </IconButton>
             </Flex>
           </Flex>
         </Box>
@@ -240,7 +254,9 @@ const News = () => {
       <Text>January 18th @ Not Not, Chicago, IL</Text>
       <span>
         <Text>Message us for the address: </Text>
-        <a href="https://www.instagram.com/precious.guard">Instagram</a>
+        <a href="https://www.instagram.com/precious.guard" target="#">
+          Instagram
+        </a>
       </span>
     </Flex>
   );
