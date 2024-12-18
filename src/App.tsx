@@ -44,7 +44,7 @@ const Character = ({ character }: { character: MusicGroupMember }) => {
   return (
     <Flex className="gray-card" gapX="3" pl="2">
       <img
-        width="100px"
+        style={{ maxWidth: "100px" }}
         src={`/images/${character.id}.png`}
         alt={character.shortName}
       />
@@ -134,7 +134,7 @@ const Location = () => {
 
 const PageHeader = () => {
   return (
-    <Flex width="80vw" justify="end" align="center">
+    <Flex width="80vw" justify="center" align="center" pb="3">
       <img src="/images/logo.png" alt="logo" />
     </Flex>
   );
@@ -180,13 +180,18 @@ const News = () => {
 
 const MainMenu = () => {
   return (
-    <Grid columns="2fr 1fr" gapX="3">
+    <Grid
+      columns={{
+        initial: "1fr",
+        sm: "2fr 1fr",
+      }}
+      gapX="3"
+    >
       <Flex direction="column" gapY="1">
         <Routes>
           <Route path="/" element={<News />} />
           <Route path="/about" element={<CharacterList />} />
         </Routes>
-
         <Location />
       </Flex>
       <Flex width="100%" direction="column" gapY="1">
