@@ -2,4 +2,39 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  --bg-primary: #0f0f11;
+  --bg-light: #63635a;
+  --border-radius: 0.75rem;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.gray-card {
+  font-family: "Lucida Console", Monaco, monospace;
+  /* font-family: "Lucida Console", "Courier New", monospace; */
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 1px rgba(26, 26, 26, 0.9); /* Optional: Add text shadow */
+  /* Noise pattern */
+  /* background: url(/noise-pattern.svg); */
+  /* backdrop-filter: blur(20px); */
+  /* background-color: var(--bg-light); */
+  /* border: 2px solid #fff; */
+  background-color:rgba(0, 60, 19, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.144),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.rounded-card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bevel {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255, 255, 255, 0.5),
+    inset -0.2em -0.2em 0.2em 0 rgba(0, 0, 0, 0.5);
 }
