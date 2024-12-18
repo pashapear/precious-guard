@@ -71,3 +71,7 @@ h6 {
 .radix-themes {
   background-color: unset !important;
 }
+
+button {
+  cursor: pointer;
+}

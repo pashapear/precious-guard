@@ -1,7 +1,7 @@
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import { characters, MusicGroupMember } from "./data/characters.ts";
-import { Box, Flex, Grid, Text } from "@radix-ui/themes";
+import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 import { useState, useEffect } from "react";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
@@ -85,10 +85,73 @@ const Clock = () => {
   return <Text>{time.toLocaleTimeString()}</Text>;
 };
 
+const Sticker = ({ coords }: { coords: [string, string] }) => {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: `${coords[0]}`,
+        left: `${coords[1]}`,
+        zIndex: 1,
+      }}
+    >
+      <Text style={{ fontSize: "700%" }}>💋</Text>
+    </div>
+  );
+};
+
+const initialGill = 25000;
+
+const newStickerPosition = () => {
+  // number between 0 and 100
+  const result = `${Math.floor(Math.random() * 100)}%`;
+  console.log(result);
+  return result;
+};
+
 const TimePanel = () => {
+  const [gill, setGill] = useState(initialGill);
+  const [dropAmount, setDropAmount] = useState(5);
+  const [clicks, setClicks] = useState(0);
+  const [stickers, setStickers] = useState<[string, string][]>([]);
+
+  useEffect(() => {
+    if (!gill) {
+      setStickers([]);
+      return;
+    }
+    if (clicks && clicks % 2 === 0) {
+      setStickers((prev) => [
+        ...prev,
+        [newStickerPosition(), newStickerPosition()],
+      ]);
+    }
+    if (clicks && clicks % 5 === 0) {
+      setDropAmount((prev) => prev * 2);
+    }
+  }, [clicks]);
+
+  const formattedGill = new Intl.NumberFormat("en-US", {
+    currency: "USD",
+  }).format(gill);
+
+  const spend = () => {
+    setClicks((prev) => prev + 1);
+    setGill((prev) => {
+      const result = prev - dropAmount;
+      if (result <= 0) {
+        return 0;
+      }
+      return result;
+    });
+  };
+
   return (
     <Box mt="3">
       <BevelBox>
+        {stickers.map((coords, index) => (
+          <Sticker key={index} coords={coords} />
+        ))}
         <Box position="relative">
           <SmallHeader>Time & Gil</SmallHeader>
           <Flex
@@ -101,9 +164,12 @@ const TimePanel = () => {
               <Text>🕒</Text>
               <Clock />
             </Flex>
-            <Flex justify="center" gap="2">
+            <Flex justify="center" gap="3">
               <Text>💰</Text>
-              <Text>188994G</Text>
+              <Text>{formattedGill}G</Text>
+              <Button color="green" variant="outline" onClick={spend}>
+                Spend
+              </Button>
             </Flex>
           </Flex>
         </Box>
