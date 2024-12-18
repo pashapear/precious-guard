@@ -150,9 +150,9 @@ const Navigation = () => {
         <NavLink to="/about">
           <NavCard>About</NavCard>
         </NavLink>
-        <NavCard>Shows</NavCard>
+        {/* <NavCard>Shows</NavCard> */}
         {/* <NavCard>Merch</NavCard> */}
-        <NavCard>Contact</NavCard>
+        {/* <NavCard>Contact</NavCard> */}
       </Flex>
     </BevelBox>
   );
@@ -166,6 +166,14 @@ const News = () => {
         Our first show is coming up! We're excited to see you all there! We're
         also working on our first EP. Stay tuned for more details!
       </Text>
+      <Text>
+        <i>Show Details</i>
+      </Text>
+      <Text>January 18th @ Not Not, Chicago, IL</Text>
+      <span>
+        <Text>Message us for the address: </Text>
+        <a href="https://www.instagram.com/precious.guard">Instagram</a>
+      </span>
     </Flex>
   );
 };
