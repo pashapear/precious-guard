@@ -10,7 +10,7 @@ export const SmallHeader = ({ children }: { children: React.ReactNode }) => {
         // WebkitTextStroke: "2px var(--bg-primary)",
         fontFamily: "Helvetica, sans-serif",
         fontWeight: "800",
-        fontSize: "1.25rem",
+        // fontSize: "1.25rem",
         position: "absolute",
         textTransform: "uppercase",
         top: "-1.1rem",

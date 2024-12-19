@@ -1,11 +1,11 @@
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import { characters, MusicGroupMember } from "./data/characters.ts";
-import { Box, Flex, Grid, IconButton, Text } from "@radix-ui/themes";
-import { useState, useEffect } from "react";
+import { Box, Flex, Grid, Text } from "@radix-ui/themes";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
 import { NavLink, Route, Routes } from "react-router";
+import { TimePanel } from "./components/TimePanel.tsx";
 
 // Removed from package.json
 // "typescript-eslint": "^8.11.0",
@@ -70,130 +70,6 @@ const NavCard = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const Clock = () => {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  return <Text>{time.toLocaleTimeString()}</Text>;
-};
-
-const Sticker = ({
-  coords,
-  icon = "💋",
-}: {
-  coords: [string, string];
-  icon?: string;
-}) => {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        top: `${coords[0]}`,
-        left: `${coords[1]}`,
-        zIndex: 1,
-        pointerEvents: "none",
-        opacity: 0.7,
-      }}
-    >
-      <Text style={{ fontSize: "700%" }}>{icon}</Text>
-    </div>
-  );
-};
-
-const initialGill = 25000;
-
-const newStickerPosition = () => {
-  // number between 0 and 100
-  const result = `${Math.floor(Math.random() * 100)}%`;
-  console.log(result);
-  return result;
-};
-
-const TimePanel = () => {
-  const [gill, setGill] = useState(initialGill);
-  const [dropAmount, setDropAmount] = useState(5);
-  const [clicks, setClicks] = useState(0);
-  const [stickers, setStickers] = useState<[string, string][]>([]);
-  const [walletColor, setWalletColor] = useState<any>("unset");
-
-  useEffect(() => {
-    if (!gill) {
-      setStickers([]);
-      return;
-    }
-    if (clicks && clicks % 2 === 0) {
-      setStickers((prev) => [
-        ...prev,
-        [newStickerPosition(), newStickerPosition()],
-      ]);
-    }
-    if (clicks && clicks % 5 === 0) {
-      setDropAmount((prev) => prev * 2);
-    }
-  }, [clicks]);
-
-  const formattedGill = new Intl.NumberFormat("en-US", {
-    currency: "USD",
-  }).format(gill);
-
-  const spend = () => {
-    setClicks((prev) => prev + 1);
-    setGill((prev) => {
-      const result = prev - dropAmount;
-      if (result <= 0) {
-        setWalletColor("unset");
-        return 0;
-      }
-      if (result < 15000) {
-        setWalletColor("red");
-      }
-      return result;
-    });
-  };
-
-  return (
-    <Box mt="3">
-      <BevelBox>
-        {stickers.map((coords, index) => (
-          <Sticker
-            key={index}
-            coords={coords}
-            icon={gill < 10000 ? "😵" : undefined}
-          />
-        ))}
-        <Box position="relative">
-          <SmallHeader>Time & Gil</SmallHeader>
-          <Flex
-            className="rounded-card gray-card"
-            direction="column"
-            p="2"
-            gap="1"
-          >
-            <Flex justify="center" gap="2">
-              <Text>🕒</Text>
-              <Clock />
-            </Flex>
-            <Flex justify="center" align="center" gap="5">
-              <Text>💰</Text>
-              <Text color={walletColor}>{formattedGill}G</Text>
-              <IconButton onClick={spend} variant="ghost">
-                <Text>🫰</Text>
-              </IconButton>
-            </Flex>
-          </Flex>
-        </Box>
-      </BevelBox>
-    </Box>
-  );
-};
-
 const Location = () => {
   return (
     <Box mt="3">
@@ -206,7 +82,7 @@ const Location = () => {
             direction="column"
             p="2"
           >
-            <Text size="5">Chicago</Text>
+            <Text>Chicago</Text>
           </Flex>
         </Box>
       </BevelBox>
@@ -273,8 +149,8 @@ const MainMenu = () => {
     >
       <Flex direction="column" gapY="1">
         <Routes>
-          <Route path="/" element={<News />} />
-          <Route path="/about" element={<CharacterList />} />
+          <Route index element={<News />} />
+          <Route path="about" element={<CharacterList />} />
         </Routes>
         <Location />
       </Flex>
@@ -288,7 +164,7 @@ const MainMenu = () => {
 
 function App() {
   return (
-    <Box style={{ fontSize: "125%" }}>
+    <Box className="app">
       {/* <ThemePanel /> */}
       <PageHeader />
       <MainMenu />
