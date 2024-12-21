@@ -53,6 +53,7 @@ const CharacterDetails = () => {
       position="relative"
     >
       <Flex
+        className="command-list"
         id="command-list"
         style={{
           position: "absolute",
