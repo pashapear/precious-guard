@@ -326,7 +326,7 @@ const MainMenu = () => {
         initial: "1fr",
         sm: "2fr 1fr",
       }}
-      gapX="3"
+      gap="3"
     >
       <Flex direction="column" gapY="1">
         <BevelBox>
