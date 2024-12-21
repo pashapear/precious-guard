@@ -1,6 +1,12 @@
 import { Text } from "@radix-ui/themes";
 
-export const SmallHeader = ({ children }: { children: React.ReactNode }) => {
+export const SmallHeader = ({
+  children,
+  top,
+}: {
+  children: React.ReactNode;
+  top?: string;
+}) => {
   return (
     <Text
       className="small-header"
@@ -10,10 +16,10 @@ export const SmallHeader = ({ children }: { children: React.ReactNode }) => {
         // WebkitTextStroke: "2px var(--bg-primary)",
         fontFamily: "Helvetica, sans-serif",
         fontWeight: "800",
-        // fontSize: "1.25rem",
+        fontSize: "0.9rem",
         position: "absolute",
         textTransform: "uppercase",
-        top: "-1.1rem",
+        top: top ?? "-0.8rem",
         left: "0.5rem",
       }}
     >

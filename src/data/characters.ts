@@ -1,12 +1,6 @@
-type Instrument = "Drums" | "Vocals" | "Saxophone" | "Piano";
-
-type Ability = {
-  name: string;
-  description: string;
-};
 
 type Equipment = {
-  instrument: string;
+  weapon: string;
   accessory: string;
   outfit: string;
   footwear: string;
@@ -17,127 +11,60 @@ type Stats = {
   hp: number;
   mp: number;
   ap: number;
-  creativity: number;
-  precision: number;
-  charisma: number;
-  endurance: number;
-  dexterity: number;
 };
 
-type Story = {
-  background: string;
-  role: string;
-};
 
 export type MusicGroupMember = {
   id: string;
   name: string;
   shortName: string;
-  age: number;
-  gender: string;
-  instrument: Instrument;
+  class: string;
+  instrument: string;
   abilities: string[];
   stats: Stats;
   equipment: Equipment;
-  skills: Ability[];
-  story: Story;
 };
 
 // Example usage
 const pasha: MusicGroupMember = {
   id: "pasha",
   name: "Pasha Pear",
+  class: 'Mystic Knight',
   shortName: "Pasha",
-  age: 25,
-  gender: "Non-binary",
   instrument: "Drums",
-  abilities: ["Rhythmic Chaos", "Stick Juggling", "Drum Solo Dance-Off"],
+  abilities: ["Roll", "Blast", "Beatbox", "Flee" ],
   stats: {
     level: 30,
-    hp: 150,
-    mp: 50,
+    hp: 120,
+    mp: 40,
     ap: 30,
-    creativity: 20,
-    precision: 18,
-    charisma: 15,
-    endurance: 22,
-    dexterity: 25,
   },
   equipment: {
-    instrument: "Glitter Drum Set",
-    accessory: "Neon Drum Sticks",
-    outfit: "Banana Suit",
-    footwear: "Rainbow Sneakers",
-  },
-  skills: [
-    {
-      name: "Rhythmic Chaos",
-      description: "Creates rhythms so wild, even the band can't follow.",
-    },
-    {
-      name: "Stick Juggling",
-      description:
-        "Juggles drum sticks while playing, often hitting bandmates.",
-    },
-    {
-      name: "Drum Solo Dance-Off",
-      description:
-        "Performs a drum solo that turns into a full-blown dance routine.",
-    },
-  ],
-  story: {
-    background:
-      "Pasha is a drummer with a penchant for the absurd. Their performances are a mix of chaos and comedy, often leaving the audience in stitches.",
-    role: "Drummer",
+    weapon: "🥪 sandwich",
+    accessory: "🧑‍🎄 yule tide cap",
+    outfit: "🤿 wet suit",
+    footwear: "🐙 octopi",
   },
 };
 
 const othello: MusicGroupMember = {
   id: "othello",
   name: "Othello Senecharles",
+  class: 'Monk',
   shortName: "Othello",
-  age: 28,
-  gender: "Male",
   instrument: "Vocals",
-  abilities: ["Operatic Yodeling", "Lyric Improv", "Stage Diving"],
+  abilities: ["Yell", "Growl", "Hum", "Monologue"],
   stats: {
-    level: 35,
-    hp: 120,
-    mp: 60,
+    level: 40,
+    hp: 150,
+    mp: 10,
     ap: 40,
-    creativity: 25,
-    precision: 15,
-    charisma: 30,
-    endurance: 18,
-    dexterity: 12,
   },
   equipment: {
-    instrument: "Golden Microphone",
-    accessory: "Feather Boa",
-    outfit: "Sequined Jumpsuit",
-    footwear: "Platform Shoes",
-  },
-  skills: [
-    {
-      name: "Operatic Yodeling",
-      description:
-        "Combines opera with yodeling for a unique, if confusing, sound.",
-    },
-    {
-      name: "Lyric Improv",
-      description:
-        "Makes up lyrics on the spot, often about random objects in the room.",
-    },
-    {
-      name: "Stage Diving",
-      description:
-        "Dives into the audience, often landing on the wrong side of the stage.",
-    },
-  ],
-  story: {
-    background:
-      "Othello is the lead singer with a flair for the dramatic. His performances are a mix of opera, yodeling, and improvised lyrics that keep the audience guessing.",
-    role: "Singer",
+    weapon: "🤛🏿 Bare handed",
+    accessory: "🧣 Red flag",
+    outfit: "🧥 Black robe",
+    footwear: "👢 BOOTS",
   },
 };
 
@@ -145,96 +72,42 @@ const jordan: MusicGroupMember = {
   id: "jordan",
   name: "Jordan Wright",
   shortName: "Jordan",
-  age: 24,
-  gender: "Non-binary",
+  class: 'Summoner',
   instrument: "Saxophone",
-  abilities: ["Jazz Fart", "Saxophone Gymnastics", "Melodic Mimicry"],
+  abilities: ["The Saxman", "Spit", "Rest", "Solo"],
   stats: {
     level: 40,
     hp: 130,
     mp: 55,
     ap: 35,
-    creativity: 22,
-    precision: 16,
-    charisma: 18,
-    endurance: 20,
-    dexterity: 24,
   },
   equipment: {
-    instrument: "Rainbow Saxophone",
-    accessory: "Silly Hat",
-    outfit: "Clown Suit",
-    footwear: "Flip-Flops",
-  },
-  skills: [
-    {
-      name: "Jazz Fart",
-      description: "Plays a saxophone solo that sounds like a series of farts.",
-    },
-    {
-      name: "Saxophone Gymnastics",
-      description:
-        "Performs acrobatic moves while playing the saxophone, often falling over.",
-    },
-    {
-      name: "Melodic Mimicry",
-      description: "Mimics the sounds of everyday objects with the saxophone.",
-    },
-  ],
-  story: {
-    background:
-      "Jordan is a saxophone player with a quirky sense of humor. Their performances are a mix of jazz, acrobatics, and sound effects that leave the audience in laughter.",
-    role: "Saxophone Player",
+    weapon: "🎷 Saxophone",
+    accessory: "🌸 Pussy hat",
+    outfit: "👖 Canadian tuxedo",
+    footwear: "👞 loafers",
   },
 };
 
 const leah: MusicGroupMember = {
   id: "leah",
   name: "Leah McNamee",
+  class: 'Dragoon',
   shortName: "Leah",
-  age: 26,
-  gender: "Female",
   instrument: "Piano",
-  abilities: ["Piano Prankster", "Musical Mashup", "Emotional Rollercoaster"],
+  abilities: ["Yap", "Cry", "Escalate"],
   stats: {
     level: 50,
-    hp: 140,
+    hp: 16,
     mp: 65,
     ap: 45,
-    creativity: 24,
-    precision: 20,
-    charisma: 16,
-    endurance: 19,
-    dexterity: 21,
   },
   equipment: {
-    instrument: "Toy Piano",
-    accessory: "Whoopee Cushion",
-    outfit: "Clown Costume",
-    footwear: "Bunny Slippers",
-  },
-  skills: [
-    {
-      name: "Piano Prankster",
-      description:
-        "Plays pranks on the audience using the piano, like sudden loud notes.",
-    },
-    {
-      name: "Musical Mashup",
-      description:
-        "Combines classical music with nursery rhymes and pop songs.",
-    },
-    {
-      name: "Emotional Rollercoaster",
-      description:
-        "Plays music that makes the audience laugh and cry within seconds.",
-    },
-  ],
-  story: {
-    background:
-      "Leah is a piano player with a mischievous streak. Her performances are a mix of classical music, pranks, and emotional rollercoasters that keep the audience entertained.",
-    role: "Piano Player",
-  },
+    weapon: "💅 acrylic nails",
+    accessory: "🔗 chain belt",
+    outfit: "👖 shiny pants",
+    footwear: "🦶 toes",
+  }
 };
 
 export const characters = [othello, leah, jordan, pasha];
