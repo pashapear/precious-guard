@@ -184,7 +184,7 @@ const CharacterList = () => {
       {characters.map((character) => {
         const url = `/about/${character.id}`;
         return (
-          <NavLink to={url}>
+          <NavLink key={character.id} to={url}>
             <CharacterSummary key={character.id} character={character} />
           </NavLink>
         );
@@ -218,6 +218,33 @@ const Location = () => {
         </Box>
       </BevelBox>
     </Box>
+  );
+};
+
+const Next = () => {
+  const { id = "othello" } = useParams();
+  const index = characters.findIndex((character) => character.id === id);
+  let nextIndex = index + 1;
+
+  if (nextIndex > characters.length - 1) {
+    nextIndex = 0;
+  }
+
+  const nextCharacter = characters[nextIndex];
+  const url = `/about/${nextCharacter.id}`;
+
+  return (
+    <Flex width="100%" justify="end">
+      <Box mt="3" width="fit-content">
+        <BevelBox>
+          <Flex className="rounded-card gray-card" p="2" pr="5" pl="5">
+            <NavLink to={url}>
+              <Text>Next</Text>
+            </NavLink>
+          </Flex>
+        </BevelBox>
+      </Box>
+    </Flex>
   );
 };
 
@@ -309,7 +336,11 @@ const MainMenu = () => {
             <Route path="about/:id" element={<CharacterDetails />} />
           </Routes>
         </BevelBox>
-        <Location />
+        <Routes>
+          <Route index element={<Location />} />
+          <Route path="about" element={<Location />} />
+          <Route path="about/:id" element={<Next />} />
+        </Routes>
       </Flex>
       <Flex width="100%" direction="column" gapY="1">
         <Navigation />
