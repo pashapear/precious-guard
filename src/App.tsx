@@ -6,6 +6,7 @@ import { Box, Flex, Grid, Text } from "@radix-ui/themes";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
 import { TimePanel } from "./components/TimePanel.tsx";
+import { ReactNode } from "react";
 
 const charactersMap = characters.reduce((acc, character) => {
   acc[character.id] = character;
@@ -19,7 +20,7 @@ const Stats = ({ character }: { character: MusicGroupMember }) => {
   return (
     <Flex direction="column" p="1" pr="4" width="100%" justify="center" gap="1">
       <Flex justify="between">
-        <Text>{character.shortName}</Text>
+        <Text weight="bold">{character.shortName}</Text>
         <Text className="text-outline">LV {character.stats.level}</Text>
       </Flex>
       <Flex>
@@ -72,16 +73,30 @@ const CharacterDetails = () => {
           </Flex>
         </BevelBox>
       </Flex>
-      <Flex id="main-stats" direction="column" gapY="1" width="100%">
+      <Flex
+        id="main-stats"
+        direction="column"
+        gapY="1"
+        width="100%"
+        pl="2"
+        pt="1"
+      >
         <Flex gap="3">
           <img
-            style={{ maxWidth: "150px", maxHeight: "200px" }}
+            className="rounded-card"
+            style={{
+              maxWidth: "150px",
+              maxHeight: "200px",
+              borderBottomRightRadius: 0,
+              borderTopRightRadius: 0,
+              borderBottomLeftRadius: 0,
+            }}
             src={`/images/${character.id}.png`}
             alt={character.shortName}
           />
           <Flex direction="column" pt="2">
             <Box pb="2">
-              <Text>{character.name}</Text>
+              <Text weight="bold">{character.name}</Text>
             </Box>
             <Text className="text-outline">LV {character.stats.level}</Text>
             <Text className="text-outline">
@@ -214,16 +229,35 @@ const PageHeader = () => {
   );
 };
 
+const CustomNavLink = ({
+  to,
+  children,
+}: {
+  to: string;
+  children: ReactNode;
+}) => {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "active" : ""
+      }
+    >
+      {children}
+    </NavLink>
+  );
+};
+
 const Navigation = () => {
   return (
     <BevelBox>
       <Flex className="rounded-card" direction="column">
-        <NavLink to="/">
+        <CustomNavLink to="/">
           <NavCard>Home</NavCard>
-        </NavLink>
-        <NavLink to="/about">
+        </CustomNavLink>
+        <CustomNavLink to="/about">
           <NavCard>About</NavCard>
-        </NavLink>
+        </CustomNavLink>
         {/* <NavCard>Shows</NavCard> */}
         {/* <NavCard>Merch</NavCard> */}
         {/* <NavCard>Contact</NavCard> */}
@@ -235,18 +269,22 @@ const Navigation = () => {
 const News = () => {
   return (
     <Flex className="gray-card" gap="5" p="5" height="100%" direction="column">
-      <Text>✨News✨</Text>
+      <Text style={{ fontSize: "120%" }}>✨News✨</Text>
       <Text>
-        Our first show is coming up! We're excited to see you all there! We're
-        also working on our first EP. Stay tuned for more details!
+        Our <b>first show</b> is coming up! We're excited to see you all there!
+        We're also working on our first EP. Stay tuned for more details!
       </Text>
       <Text>
-        <i>Show Details</i>
+        <i>Show Details:</i>
       </Text>
-      <Text>January 18th @ Not Not, Chicago, IL</Text>
+      <Text mt="-5">January 18th @ Not Not, Chicago, IL</Text>
       <span>
         <Text>Message us for the address: </Text>
-        <a href="https://www.instagram.com/precious.guard" target="#">
+        <a
+          href="https://www.instagram.com/precious.guard"
+          target="#"
+          style={{ textDecoration: "underline" }}
+        >
           Instagram
         </a>
       </span>

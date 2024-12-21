@@ -30,7 +30,7 @@ a, a span, a div {
 .gray-card {
   font-family: "Lucida Console", Monaco, monospace;
   /* font-family: "Lucida Console", "Courier New", monospace; */
-  font-weight: bold;
+  /* font-weight: bold; */
   color: white;
   text-shadow: 2px 2px 1px rgba(26, 26, 26, 0.9); /* Optional: Add text shadow */
   /* Noise pattern */
@@ -58,4 +58,21 @@ a, a span, a div {
   @media screen and (max-width: 768px) {
     display: none;
   }
+}
+
+.active {
+  font-weight: bold;
+}
+
+.link-card {
+  background-color: var(--bg-light);
+  border: 1px solid #fff;
+  box-shadow: 0 3px 3px rgba(255, 255, 255, 0.144),
+    0 -2px 3px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(255, 255, 255, 0.9);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
