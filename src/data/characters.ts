@@ -32,7 +32,7 @@ const pasha: MusicGroupMember = {
   class: 'Mystic Knight',
   shortName: "Pasha",
   instrument: "Drums",
-  abilities: ["Roll", "Blast", "Beatbox", "Flee" ],
+  abilities: ["Snort", "Blast", "Cheer", "Flee" ],
   stats: {
     level: 45,
     hp: 150,
@@ -43,7 +43,7 @@ const pasha: MusicGroupMember = {
     weapon: "🥪 sandwich",
     accessory: "🧑‍🎄 yuletide cap",
     outfit: "🤿 wet suit",
-    footwear: "🐙 octopi",
+    footwear: "🛼 heelys",
   },
 };
 

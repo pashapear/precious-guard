@@ -147,9 +147,14 @@ const CharacterDetails = () => {
 
 const CharacterSummary = ({ character }: { character: MusicGroupMember }) => {
   return (
-    <Flex className="gray-card" gapX="3" pl="2">
+    <Flex className="gray-card" gapX="3" p="1" pl="2">
       <img
-        style={{ maxWidth: "100px" }}
+        className="rounded-card"
+        style={{
+          maxWidth: "100px",
+          borderBottomRightRadius: 0,
+          borderTopRightRadius: 0,
+        }}
         src={`/images/${character.id}.png`}
         alt={character.shortName}
       />
@@ -160,7 +165,7 @@ const CharacterSummary = ({ character }: { character: MusicGroupMember }) => {
 
 const CharacterList = () => {
   return (
-    <Flex direction="column">
+    <Flex direction="column" className="rounded-card">
       {characters.map((character) => {
         const url = `/about/${character.id}`;
         return (
