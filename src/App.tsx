@@ -193,14 +193,6 @@ const CharacterList = () => {
   );
 };
 
-const NavCard = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Flex className="gray-card" align="center" justify="center" p="3">
-      <Text>{children}</Text>
-    </Flex>
-  );
-};
-
 const Location = () => {
   return (
     <Box mt="3">
@@ -221,15 +213,33 @@ const Location = () => {
   );
 };
 
+const NavCard = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Flex
+      className="gray-card nav-button bevel"
+      align="center"
+      justify="center"
+      p="3"
+    >
+      <Text>{children}</Text>
+    </Flex>
+  );
+};
+
 const NavButton = ({ children, url }: { children: ReactNode; url: string }) => {
   return (
-    <Box mt="3" width="fit-content">
-      {" "}
-      <BevelBox>
-        <Flex className="rounded-card gray-card" p="2" pr="5" pl="5">
-          <NavLink to={url}>{children}</NavLink>
-        </Flex>
-      </BevelBox>
+    <Box
+      mt="3"
+      width="fit-content"
+      className="gray-card rounded-card nav-button bevel"
+    >
+      <NavLink to={url}>
+        <BevelBox>
+          <Flex p="2" pr="5" pl="5">
+            {children}
+          </Flex>
+        </BevelBox>
+      </NavLink>
     </Box>
   );
 };

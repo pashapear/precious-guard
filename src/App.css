@@ -76,3 +76,8 @@ a, a span, a div {
   justify-content: space-between;
   align-items: center;
 }
+
+a .bevel:hover, a .gray-card:hover {
+  background-color: rgba(0, 60, 19, 0.9);
+  transition: background-color 0.5s;
+}
