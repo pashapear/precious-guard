@@ -278,7 +278,11 @@ const CharacterNav = () => {
 const PageHeader = () => {
   return (
     <Flex justify="center" align="center" pb="3">
-      <img src="/images/logo.png" alt="logo" />
+      <img
+        style={{ maxWidth: "40rem", minWidth: "15rem" }}
+        src="/images/logo.png"
+        alt="logo"
+      />
     </Flex>
   );
 };
@@ -382,7 +386,7 @@ const MainMenu = () => {
 
 function App() {
   return (
-    <Box className="app">
+    <Box className="app" style={{ minWidth: "25rem" }}>
       {/* <ThemePanel /> */}
       <PageHeader />
       <MainMenu />
