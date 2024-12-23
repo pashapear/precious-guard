@@ -277,7 +277,7 @@ const CharacterNav = () => {
 
 const PageHeader = () => {
   return (
-    <Flex width="80vw" justify="center" align="center" pb="3">
+    <Flex justify="center" align="center" pb="3">
       <img src="/images/logo.png" alt="logo" />
     </Flex>
   );
@@ -331,9 +331,12 @@ const News = () => {
       <Text>
         <i>Show Details:</i>
       </Text>
-      <Text mt="-5">January 18th @ Not Not, Chicago, IL</Text>
-      <span>
-        <Text>Message us for the address: </Text>
+      <Text mt="-5">January 18th, 8pm @ Not Not</Text>
+
+      <Text mt="-5">3950 West Grand Ave, Chicago, IL</Text>
+
+      <Text>
+        Get in touch:{" "}
         <a
           href="https://www.instagram.com/precious.guard"
           target="#"
@@ -341,7 +344,7 @@ const News = () => {
         >
           Instagram
         </a>
-      </span>
+      </Text>
     </Flex>
   );
 };

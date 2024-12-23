@@ -77,7 +77,10 @@ a, a span, a div {
   align-items: center;
 }
 
-a .bevel:hover, a .gray-card:hover {
+a .bevel:focus,
+a .gray-card:focus,
+a .bevel:hover,
+a .gray-card:hover {
   background-color: rgba(0, 60, 19, 0.9);
   transition: background-color 0.5s;
 }
