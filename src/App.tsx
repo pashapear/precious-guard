@@ -114,7 +114,7 @@ const CharacterDetails = () => {
           gap="1"
         >
           <Grid
-            columns="1fr 1fr"
+            columns={{ initial: "1fr 2fr", sm: "1fr 1fr" }}
             gap="1"
             pl="1"
             style={{ borderTop: "var(--white-border)" }}
@@ -221,29 +221,46 @@ const Location = () => {
   );
 };
 
-const Next = () => {
+const NavButton = ({ children, url }: { children: ReactNode; url: string }) => {
+  return (
+    <Box mt="3" width="fit-content">
+      {" "}
+      <BevelBox>
+        <Flex className="rounded-card gray-card" p="2" pr="5" pl="5">
+          <NavLink to={url}>{children}</NavLink>
+        </Flex>
+      </BevelBox>
+    </Box>
+  );
+};
+
+const CharacterNav = () => {
   const { id = "othello" } = useParams();
   const index = characters.findIndex((character) => character.id === id);
+  let prevIndex = index - 1;
   let nextIndex = index + 1;
+
+  if (prevIndex < 0) {
+    prevIndex = characters.length - 1;
+  }
 
   if (nextIndex > characters.length - 1) {
     nextIndex = 0;
   }
 
+  const prevCharacter = characters[prevIndex];
   const nextCharacter = characters[nextIndex];
-  const url = `/about/${nextCharacter.id}`;
+  const prevUrl = `/about/${prevCharacter.id}`;
+  const nextUrl = `/about/${nextCharacter.id}`;
 
   return (
-    <Flex width="100%" justify="end">
-      <Box mt="3" width="fit-content">
-        <BevelBox>
-          <Flex className="rounded-card gray-card" p="2" pr="5" pl="5">
-            <NavLink to={url}>
-              <Text>Next</Text>
-            </NavLink>
-          </Flex>
-        </BevelBox>
-      </Box>
+    <Flex width="100%" justify="end" gap="3">
+      <NavButton url={prevUrl}>
+        <Text>Prev</Text>
+      </NavButton>
+      <NavButton url={nextUrl}>
+        <Text>Next</Text>
+      </NavButton>
     </Flex>
   );
 };
@@ -339,7 +356,7 @@ const MainMenu = () => {
         <Routes>
           <Route index element={<Location />} />
           <Route path="about" element={<Location />} />
-          <Route path="about/:id" element={<Next />} />
+          <Route path="about/:id" element={<CharacterNav />} />
         </Routes>
       </Flex>
       <Flex width="100%" direction="column" gapY="1">
