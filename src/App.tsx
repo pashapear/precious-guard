@@ -386,7 +386,7 @@ const MainMenu = () => {
 
 function App() {
   return (
-    <Box className="app" style={{ minWidth: "25rem" }}>
+    <Box className="app">
       {/* <ThemePanel /> */}
       <PageHeader />
       <MainMenu />
