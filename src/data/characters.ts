@@ -30,7 +30,7 @@ const pasha: MusicGroupMember = {
   name: "Pasha Pear",
   class: 'Mystic Knight',
   shortName: "Pasha",
-  instrument: "Drums",
+  instrument: "Drum Kit",
   abilities: ["Spin Attack", "Time Expansion", "Steal", "Flee" ],
   stats: {
     level: 45,
@@ -81,8 +81,8 @@ const jordan: MusicGroupMember = {
     ap: 35,
   },
   equipment: {
-    weapon: "🖋️ Fancy pen",
-    accessory: "🌸 Pussy hat",
+    weapon: "🎷 Saxophone",
+    accessory: "🖋️ Fancy pen",
     outfit: "👖 Canadian tuxedo",
     footwear: "👞 Loafers",
   },
