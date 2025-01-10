@@ -84,3 +84,19 @@ a .gray-card:hover {
   background-color: rgba(0, 60, 19, 0.9);
   transition: background-color 0.5s;
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}

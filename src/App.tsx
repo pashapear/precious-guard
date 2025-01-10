@@ -2,7 +2,7 @@ import { NavLink, Route, Routes, useParams } from "react-router";
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import { characters, MusicGroupMember } from "./data/characters.ts";
-import { Box, Flex, Grid, Text } from "@radix-ui/themes";
+import { Box, Dialog, Flex, Grid, Text } from "@radix-ui/themes";
 import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
 import { TimePanel } from "./components/TimePanel.tsx";
@@ -277,7 +277,8 @@ const CharacterNav = () => {
 
 const PageHeader = () => {
   return (
-    <Flex justify="center" align="center" pb="3">
+    <Flex justify="center" align="center" gap="2" pb="3">
+      <FloatingPanel />
       <img
         style={{ maxWidth: "40rem", minWidth: "15rem" }}
         src="/images/logo.png"
@@ -326,12 +327,19 @@ const Navigation = () => {
 
 const News = () => {
   return (
-    <Flex className="gray-card" gap="5" p="5" height="100%" direction="column">
+    <Flex
+      className="gray-card rounded-card"
+      gap="5"
+      p="5"
+      height="100%"
+      direction="column"
+    >
       <Text style={{ fontSize: "120%" }}>✨News✨</Text>
       <Text>
         Our <b>first show</b> is coming up! We're excited to see you all there!
         We're also working on our first EP. Stay tuned for more details!
       </Text>
+
       <Text>
         <i>Show Details:</i>
       </Text>
@@ -381,6 +389,26 @@ const MainMenu = () => {
         <TimePanel />
       </Flex>
     </Grid>
+  );
+};
+
+const FloatingPanel = () => {
+  return (
+    <Dialog.Root defaultOpen>
+      <Dialog.Trigger
+        style={{ cursor: "pointer", padding: "1rem", paddingTop: "2.5rem" }}
+        className="floating-panel-trigger"
+      >
+        <Box className="floating">
+          <Text size="8">🎵</Text>
+        </Box>
+      </Dialog.Trigger>
+      <Dialog.Content width="fit-content" style={{ borderRadius: 0 }}>
+        <Box>
+          <img src="images/shows/01.28.25.jpg" alt="show poster" />
+        </Box>
+      </Dialog.Content>
+    </Dialog.Root>
   );
 };
 
