@@ -62,9 +62,11 @@ const Post2 = () => (
     <Text>
       Alas, we are saddened to inform you that this was our last show with our
       keyboard player, Leah, who has chosen to move on from the project. We wish
-      her all the best, but we must move forward as well. Therefore, we are
-      putting out a casting call, so to speak, in search of a new keyboard
-      player.
+      her all the best, but we must move forward as well.
+    </Text>
+    <Text>
+      Therefore, we are putting out a casting call, so to speak, in search of a
+      new keyboard player. 🎹
     </Text>
     <Text>
       In addition to keys, we are open to other instruments as well. If you are
@@ -72,7 +74,7 @@ const Post2 = () => (
     </Text>
     <Text>
       We are open to all melodic instruments, be it strings, brass, or
-      woodwinds. 🎻 🎺 🪈
+      woodwinds. 🎸 🎺 🪈
     </Text>
     <ContactInfo />
     <DateTag>Feb 19, 2025</DateTag>
