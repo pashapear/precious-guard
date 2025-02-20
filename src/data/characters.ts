@@ -88,25 +88,25 @@ const jordan: MusicGroupMember = {
   },
 };
 
-const leah: MusicGroupMember = {
-  id: "leah",
-  name: "Leah McNamee",
-  class: 'Dragoon',
-  shortName: "Leah",
-  instrument: "Piano",
-  abilities: ["Yap", "Cry", "Escalate"],
-  stats: {
-    level: 50,
-    hp: 16,
-    mp: 65,
-    ap: 45,
-  },
-  equipment: {
-    weapon: "💅 Acrylic nails",
-    accessory: "🔗 Chain belt",
-    outfit: "👖 Shiny pants",
-    footwear: "🦶 Toes",
-  }
-};
+// const leah: MusicGroupMember = {
+//   id: "leah",
+//   name: "Leah McNamee",
+//   class: 'Dragoon',
+//   shortName: "Leah",
+//   instrument: "Piano",
+//   abilities: ["Yap", "Cry", "Escalate"],
+//   stats: {
+//     level: 50,
+//     hp: 16,
+//     mp: 65,
+//     ap: 45,
+//   },
+//   equipment: {
+//     weapon: "💅 Acrylic nails",
+//     accessory: "🔗 Chain belt",
+//     outfit: "👖 Shiny pants",
+//     footwear: "🦶 Toes",
+//   }
+// };
 
-export const characters = [othello, leah, jordan, pasha];
+export const characters = [othello, jordan, pasha];
