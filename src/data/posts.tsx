@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@radix-ui/themes";
+import { Box, Flex, Separator, Text } from "@radix-ui/themes";
 
 const DateTag = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -12,20 +12,56 @@ const DateTag = ({ children }: { children?: React.ReactNode }) => {
   );
 };
 
+const InstagramLink = () => (
+  <a
+    href="https://www.instagram.com/precious.guard"
+    target="#"
+    style={{ textDecoration: "underline" }}
+  >
+    Instagram
+  </a>
+);
+
 const ContactInfo = () => {
   return (
     <Flex direction="column">
       <Text>
-        Get in touch:{" "}
-        <a
-          href="https://www.instagram.com/precious.guard"
-          target="#"
-          style={{ textDecoration: "underline" }}
-        >
-          Instagram
-        </a>
+        Get in touch: <InstagramLink />
       </Text>
     </Flex>
+  );
+};
+
+const SoundCloudPlayer = () => {
+  return (
+    <>
+      <iframe
+        title="SoundCloud Player"
+        style={{ borderRadius: "var(--border-radius)" }}
+        width="100%"
+        height="250"
+        frameBorder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1971257613&color=%2300b0b4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+      ></iframe>
+    </>
+  );
+};
+
+const YouTubePlayer = ({ src }: { src: string }) => {
+  return (
+    <>
+      <iframe
+        width="100%"
+        height="315"
+        src={src}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
+    </>
   );
 };
 
@@ -56,27 +92,36 @@ const Post2 = () => (
   <>
     <Text>Thanks to all who came out to our first show 💝</Text>
     <Text>
-      What a wonderful thing it was! Of course, as it goes, you have to take the
-      good with the bad; apparently one cannot exist without the other.
+      What a wonderful thing it was! We had a blast playing for you all, and
+      we're so grateful for the support.
     </Text>
     <Text>
       Alas, we are saddened to inform you that this was our last show with our
-      keyboard player, Leah, who has chosen to move on from the project. We wish
-      her all the best, but we must move forward as well.
+      keyboard player, Leah, who is moving on from the project. We wish her all
+      the best, but we must move forward as well.
+    </Text>
+    <Separator size="4" color="cyan" />
+    <Text>
+      <b>We are officially putting out a casting call</b>, in search of a new
+      keyboard 🎹 or guitar player 🎸 to join our party. In addition to this, we
+      are also looking for a bassist 𝄢.
     </Text>
     <Text>
-      Therefore, we are putting out a casting call, so to speak, in search of a
-      new keyboard player. 🎹
+      If you are interested, or know anyone who would be, we hope to hear from
+      you. Just DM us on our <InstagramLink /> or email us at{" "}
+      <a
+        href="mailto:preciousguard@gmail.com"
+        target="#"
+        style={{ textDecoration: "underline" }}
+      >
+        preciousguard@gmail.com
+      </a>
     </Text>
-    <Text>
-      In addition to keys, we are open to other instruments as well. If you are
-      a musician and are interested in joining our band, please reach out!
-    </Text>
-    <Text>
-      We are open to all melodic instruments, be it strings, brass, or
-      woodwinds. 🎸 🎺 🪈
-    </Text>
-    <ContactInfo />
+    <Text>Here are a of couple demos:</Text>
+    <SoundCloudPlayer />
+    <Text>And videos from the show:</Text>
+    <YouTubePlayer src="https://www.youtube.com/embed/gzNUlvB8MmQ?si=jx3YzTtc8aQFK3zA" />
+    <YouTubePlayer src="https://www.youtube.com/embed/jLEKo7XpSCY?si=GevegfwOivJYP5wy" />
     <DateTag>Feb 19, 2025</DateTag>
   </>
 );
