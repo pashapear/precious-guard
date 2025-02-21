@@ -110,11 +110,11 @@ const Post2 = () => (
       If you are interested, or know anyone who would be, we hope to hear from
       you. Just DM us on our <InstagramLink /> or email us at{" "}
       <a
-        href="mailto:preciousguard@gmail.com"
+        href="mailto:guardprecious@gmail.com"
         target="#"
         style={{ textDecoration: "underline" }}
       >
-        preciousguard@gmail.com
+        guardprecious@gmail.com
       </a>
     </Text>
     <Text>Here are a of couple demos:</Text>
