@@ -117,7 +117,7 @@ const Post2 = () => (
         guardprecious@gmail.com
       </a>
     </Text>
-    <Text>Here are a of couple demos:</Text>
+    <Text>Here are a couple of demos:</Text>
     <SoundCloudPlayer />
     <Text>And videos from the show:</Text>
     <YouTubePlayer src="https://www.youtube.com/embed/gzNUlvB8MmQ?si=jx3YzTtc8aQFK3zA" />
