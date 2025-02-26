@@ -96,12 +96,11 @@ const MainMenu = () => {
           <Route path="about/:id" element={<Characters />} />
           <Route path="media" element={<Media />} />
         </Routes>
-
         <Routes>
           <Route index element={<Location />} />
           <Route path="about" element={<Location />} />
           <Route path="about/:id" element={<PageNav items={characters} />} />
-          <Route path="about" element={<Location />} />
+          <Route path="media" element={<Location />} />
         </Routes>
       </Flex>
       <Flex width="100%" direction="column" gapY="1">
