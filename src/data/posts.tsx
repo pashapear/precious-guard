@@ -1,4 +1,5 @@
 import { Box, Flex, Separator, Text } from "@radix-ui/themes";
+import { Link } from "react-router";
 
 const DateTag = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -102,9 +103,12 @@ const Post2 = () => (
     </Text>
     <Separator size="4" color="cyan" />
     <Text>
-      We are officially putting out a casting call, in search of a bass player 𝄢
-      to join our party. We are queer, you don’t have to be queer to join, just
-      be cool.
+      We are officially putting out a casting call, in search of a{" "}
+      <Link to="about/new-member" style={{ textDecoration: "underline" }}>
+        bass player
+      </Link>{" "}
+      𝄢 to join our party. We are queer, you don’t have to be queer to join,
+      just be cool.
     </Text>
     <Text>
       If you are interested, or know anyone who would be, we hope to hear from
