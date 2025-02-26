@@ -102,9 +102,9 @@ const Post2 = () => (
     </Text>
     <Separator size="4" color="cyan" />
     <Text>
-      <b>We are officially putting out a casting call</b>, in search of a new
-      keyboard 🎹 or guitar player 🎸 to join our party. In addition to this, we
-      are also looking for a bassist 𝄢.
+      We are officially putting out a casting call, in search of a bass player 𝄢
+      to join our party. We are queer, you don’t have to be queer to join, just
+      be cool.
     </Text>
     <Text>
       If you are interested, or know anyone who would be, we hope to hear from
