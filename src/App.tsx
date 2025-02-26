@@ -7,12 +7,9 @@ import { BevelBox } from "./components/BevelBox.tsx";
 import { TimePanel } from "./components/TimePanel.tsx";
 import { News } from "./pages/News.tsx";
 import { Characters } from "./pages/Characters.tsx";
-import { Character } from "./pages/Character/Character.tsx";
 import { CustomNavLink } from "./components/CustomNavLink.tsx";
 import { PageNav } from "./components/PageNav.tsx";
 import { characters } from "./data/characters.ts";
-import { SoundCloudPlayer } from "./components/SoundCloudPlayer.tsx";
-import { YouTubePlayer } from "./components/YouTubePlayer.tsx";
 import { Media } from "./pages/Media.tsx";
 
 const Location = () => {
