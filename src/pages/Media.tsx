@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 import { SoundCloudPlayer } from "../components/SoundCloudPlayer";
 import { YouTubePlayer } from "../components/YouTubePlayer";
 import { BevelBox } from "../components/BevelBox";
