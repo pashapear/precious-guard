@@ -109,4 +109,25 @@ const jordan: MusicGroupMember = {
 //   }
 // };
 
-export const characters = [othello, jordan, pasha];
+const newMember: MusicGroupMember = {
+  id: "new-member",
+  name: "New Member",
+  shortName: "You?",
+  class: '???',
+  instrument: "Bass",
+  abilities: ["Pluck", "Slap", "Feel"],
+  stats: {
+    level: 1,
+    hp: 100,
+    mp: 50,
+    ap: 20,
+  },
+  equipment: {
+    weapon: "𝄢 Bass Guitar",
+    accessory: "🎩 ???",
+    outfit: "👕 ???",
+    footwear: "👟 ???",
+  },
+};
+
+export const characters = [othello, jordan, pasha, newMember];
