@@ -122,7 +122,7 @@ const Post2 = () => (
     <Text>And videos from the show:</Text>
     <YouTubePlayer src="https://www.youtube.com/embed/gzNUlvB8MmQ?si=jx3YzTtc8aQFK3zA" />
     <YouTubePlayer src="https://www.youtube.com/embed/jLEKo7XpSCY?si=GevegfwOivJYP5wy" />
-    <DateTag>Feb 19, 2025</DateTag>
+    <DateTag>Feb 25, 2025</DateTag>
   </>
 );
 
