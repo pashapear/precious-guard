@@ -11,6 +11,7 @@ import { CustomNavLink } from "./components/CustomNavLink.tsx";
 import { PageNav } from "./components/PageNav.tsx";
 import { characters } from "./data/characters.ts";
 import { Media } from "./pages/Media.tsx";
+import { Character } from "./pages/Character.tsx";
 
 const Location = () => {
   return (
@@ -93,7 +94,7 @@ const MainMenu = () => {
         <Routes>
           <Route index element={<News />} />
           <Route path="about" element={<Characters />} />
-          <Route path="about/:id" element={<Characters />} />
+          <Route path="about/:id" element={<Character />} />
           <Route path="media" element={<Media />} />
         </Routes>
         <Routes>

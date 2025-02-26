@@ -1,8 +1,8 @@
 import { Flex, Box, Grid, Text } from "@radix-ui/themes";
 import { useParams } from "react-router";
-import { BevelBox } from "../../components/BevelBox";
-import { SmallHeader } from "../../components/SmallHeader";
-import { characters, MusicGroupMember } from "../../data/characters";
+import { BevelBox } from "../components/BevelBox";
+import { SmallHeader } from "../components/SmallHeader";
+import { characters, MusicGroupMember } from "../data/characters";
 
 const charactersMap = characters.reduce((acc, character) => {
   acc[character.id] = character;
