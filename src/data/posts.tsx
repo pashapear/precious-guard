@@ -1,5 +1,7 @@
 import { Box, Flex, Separator, Text } from "@radix-ui/themes";
 import { Link } from "react-router";
+import { SoundCloudPlayer } from "../components/SoundCloudPlayer";
+import { YouTubePlayer } from "../components/YouTubePlayer";
 
 const DateTag = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -30,39 +32,6 @@ const ContactInfo = () => {
         Get in touch: <InstagramLink />
       </Text>
     </Flex>
-  );
-};
-
-const SoundCloudPlayer = () => {
-  return (
-    <>
-      <iframe
-        title="SoundCloud Player"
-        style={{ borderRadius: "var(--border-radius)" }}
-        width="100%"
-        height="250"
-        frameBorder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1971257613&color=%2300b0b4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-      ></iframe>
-    </>
-  );
-};
-
-const YouTubePlayer = ({ src }: { src: string }) => {
-  return (
-    <>
-      <iframe
-        width="100%"
-        height="315"
-        src={src}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      ></iframe>
-    </>
   );
 };
 
@@ -112,7 +81,7 @@ const Post2 = () => (
     </Text>
     <Text>
       If you are interested, or know anyone who would be, we hope to hear from
-      you. Just DM us on our <InstagramLink /> or email us at{" "}
+      you. Just shoot us a DM or email us at{" "}
       <a
         href="mailto:guardprecious@gmail.com"
         target="#"

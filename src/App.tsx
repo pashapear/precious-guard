@@ -6,11 +6,14 @@ import { SmallHeader } from "./components/SmallHeader.tsx";
 import { BevelBox } from "./components/BevelBox.tsx";
 import { TimePanel } from "./components/TimePanel.tsx";
 import { News } from "./pages/News.tsx";
-import { CharacterList } from "./pages/Characters.tsx";
-import { CharacterDetails } from "./pages/Character/Character.tsx";
+import { Characters } from "./pages/Characters.tsx";
+import { Character } from "./pages/Character/Character.tsx";
 import { CustomNavLink } from "./components/CustomNavLink.tsx";
 import { PageNav } from "./components/PageNav.tsx";
 import { characters } from "./data/characters.ts";
+import { SoundCloudPlayer } from "./components/SoundCloudPlayer.tsx";
+import { YouTubePlayer } from "./components/YouTubePlayer.tsx";
+import { Media } from "./pages/Media.tsx";
 
 const Location = () => {
   return (
@@ -69,6 +72,9 @@ const Navigation = () => {
         <CustomNavLink to="/about">
           <NavCard>About</NavCard>
         </CustomNavLink>
+        <CustomNavLink to="/media">
+          <NavCard>Media</NavCard>
+        </CustomNavLink>
         {/* <NavCard>Shows</NavCard> */}
         {/* <NavCard>Merch</NavCard> */}
         {/* <NavCard>Contact</NavCard> */}
@@ -87,17 +93,18 @@ const MainMenu = () => {
       gap="3"
     >
       <Flex direction="column" gapY="1">
-        <BevelBox>
-          <Routes>
-            <Route index element={<News />} />
-            <Route path="about" element={<CharacterList />} />
-            <Route path="about/:id" element={<CharacterDetails />} />
-          </Routes>
-        </BevelBox>
+        <Routes>
+          <Route index element={<News />} />
+          <Route path="about" element={<Characters />} />
+          <Route path="about/:id" element={<Characters />} />
+          <Route path="media" element={<Media />} />
+        </Routes>
+
         <Routes>
           <Route index element={<Location />} />
           <Route path="about" element={<Location />} />
           <Route path="about/:id" element={<PageNav items={characters} />} />
+          <Route path="about" element={<Location />} />
         </Routes>
       </Flex>
       <Flex width="100%" direction="column" gapY="1">

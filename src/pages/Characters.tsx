@@ -1,6 +1,7 @@
 import { Flex, Text } from "@radix-ui/themes";
 import { NavLink } from "react-router";
 import { MusicGroupMember, characters } from "../data/characters";
+import { BevelBox } from "../components/BevelBox";
 
 const Stats = ({ character }: { character: MusicGroupMember }) => {
   return (
@@ -47,17 +48,19 @@ const CharacterSummary = ({ character }: { character: MusicGroupMember }) => {
   );
 };
 
-export const CharacterList = () => {
+export const Characters = () => {
   return (
-    <Flex direction="column" className="rounded-card">
-      {characters.map((character) => {
-        const url = `/about/${character.id}`;
-        return (
-          <NavLink key={character.id} to={url}>
-            <CharacterSummary key={character.id} character={character} />
-          </NavLink>
-        );
-      })}
-    </Flex>
+    <BevelBox>
+      <Flex direction="column" className="rounded-card">
+        {characters.map((character) => {
+          const url = `/about/${character.id}`;
+          return (
+            <NavLink key={character.id} to={url}>
+              <CharacterSummary key={character.id} character={character} />
+            </NavLink>
+          );
+        })}
+      </Flex>
+    </BevelBox>
   );
 };
