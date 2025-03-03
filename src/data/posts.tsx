@@ -90,11 +90,13 @@ const Post2 = () => (
         guardprecious@gmail.com
       </a>
     </Text>
-    <Text>Here are a couple of demos:</Text>
-    <SoundCloudPlayer />
-    <Text>And videos from the show:</Text>
-    <YouTubePlayer src="https://www.youtube.com/embed/gzNUlvB8MmQ?si=jx3YzTtc8aQFK3zA" />
-    <YouTubePlayer src="https://www.youtube.com/embed/jLEKo7XpSCY?si=GevegfwOivJYP5wy" />
+    <Text>
+      You can find samples of our music on the{" "}
+      <Link to="media" style={{ textDecoration: "underline" }}>
+        Media
+      </Link>{" "}
+      page
+    </Text>
     <DateTag>Feb 25, 2025</DateTag>
   </>
 );
