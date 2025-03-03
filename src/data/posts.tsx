@@ -1,7 +1,5 @@
 import { Box, Flex, Separator, Text } from "@radix-ui/themes";
 import { Link } from "react-router";
-import { SoundCloudPlayer } from "../components/SoundCloudPlayer";
-import { YouTubePlayer } from "../components/YouTubePlayer";
 
 const DateTag = ({ children }: { children?: React.ReactNode }) => {
   return (
