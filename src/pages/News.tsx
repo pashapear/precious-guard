@@ -2,6 +2,7 @@ import { Text, Button, Flex, Separator } from "@radix-ui/themes";
 import { posts } from "../data/posts";
 import { useState } from "react";
 import { BevelBox } from "../components/BevelBox";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LatestPost = posts[posts.length - 1].post;
 
@@ -31,29 +32,49 @@ export const News = () => {
         direction="column"
       >
         <Text style={{ fontSize: "120%" }}>✨News✨</Text>
-        {readMore ? (
-          <>
-            <RestOfPosts />
-            <Button
-              className="primary-btn"
-              variant="classic"
-              onClick={() => setReadMore(false)}
+        <AnimatePresence mode="wait">
+          {readMore ? (
+            <motion.div
+              key="all-posts"
+              initial={{ opacity: 0, height: 0, y: -20 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              style={{ overflow: "hidden" }}
             >
-              Close
-            </Button>
-          </>
-        ) : (
-          <>
-            <LatestPost />
-            <Button
-              className="primary-btn"
-              variant="classic"
-              onClick={() => setReadMore(true)}
+              <Flex gap="5" direction="column">
+                <RestOfPosts />
+                <Button
+                  className="primary-btn"
+                  variant="classic"
+                  onClick={() => setReadMore(false)}
+                >
+                  See Less
+                </Button>
+              </Flex>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="latest-post"
+              initial={{ opacity: 0, height: 0, y: -10 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -10 }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
+              style={{ overflow: "hidden" }}
             >
-              Older Posts
-            </Button>
-          </>
-        )}
+              <Flex gap="5" direction="column">
+                <LatestPost />
+                <Button
+                  className="primary-btn"
+                  variant="classic"
+                  onClick={() => setReadMore(true)}
+                >
+                  See More
+                </Button>
+              </Flex>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Flex>
     </BevelBox>
   );
