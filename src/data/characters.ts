@@ -1,4 +1,3 @@
-
 type Equipment = {
   weapon: string;
   accessory: string;
@@ -12,7 +11,6 @@ type Stats = {
   mp: number;
   ap: number;
 };
-
 
 export type MusicGroupMember = {
   id: string;
@@ -28,10 +26,10 @@ export type MusicGroupMember = {
 const pasha: MusicGroupMember = {
   id: "pasha",
   name: "Pasha Pear",
-  class: 'Mystic Knight',
+  class: "Mystic Knight",
   shortName: "Pasha",
   instrument: "Drum Kit",
-  abilities: ["Spin Attack", "Time Expansion", "Steal", "Flee" ],
+  abilities: ["Spin Attack", "Time Expansion", "Steal", "Flee"],
   stats: {
     level: 45,
     hp: 150,
@@ -49,7 +47,7 @@ const pasha: MusicGroupMember = {
 const othello: MusicGroupMember = {
   id: "othello",
   name: "Othello Senecharles",
-  class: 'Monk',
+  class: "Monk",
   shortName: "Othello",
   instrument: "Vocals",
   abilities: ["Yell", "Growl", "Hum", "Monologue"],
@@ -71,7 +69,7 @@ const jordan: MusicGroupMember = {
   id: "jordan",
   name: "Jordan Wright",
   shortName: "Jordan",
-  class: 'Summoner',
+  class: "Summoner",
   instrument: "Saxophone",
   abilities: ["Reed Swap", "Overtones", "Summon Ostinato", "Toad"],
   stats: {
@@ -109,11 +107,11 @@ const jordan: MusicGroupMember = {
 //   }
 // };
 
-const newMember: MusicGroupMember = {
+export const newMember: MusicGroupMember = {
   id: "new-member",
   name: "New Member",
   shortName: "You?",
-  class: '???',
+  class: "???",
   instrument: "Bass",
   abilities: ["Pluck", "Slap", "Feel"],
   stats: {
@@ -130,4 +128,4 @@ const newMember: MusicGroupMember = {
   },
 };
 
-export const characters = [othello, jordan, pasha, newMember];
+export const characters = [othello, jordan, pasha];
