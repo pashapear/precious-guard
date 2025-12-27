@@ -99,6 +99,21 @@ const Post2 = () => (
   </>
 );
 
+const Post3 = () => (
+  <>
+    <Text>
+      <b>Precious Guard EP #1: In the Works</b>
+    </Text>
+    <Text>We are excited to announce that we are working on our first EP!</Text>
+    <Text>
+      The EP will feature songs we wrote over the past couple of years, we
+      expect to be done with it in early 2026.
+    </Text>
+    <Text>Stay tuned for more updates, and thank you for visiting!</Text>
+    <DateTag>Dec 26, 2025</DateTag>
+  </>
+);
+
 export type Post = {
   id: string;
   post: () => JSX.Element;
@@ -107,4 +122,5 @@ export type Post = {
 export const posts: Post[] = [
   { id: "1", post: Post1 },
   { id: "2", post: Post2 },
+  { id: "3", post: Post3 },
 ];
